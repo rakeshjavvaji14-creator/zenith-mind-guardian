@@ -17,24 +17,47 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 158 64% 52%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 158 64% 52%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 158 64% 52%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 158 64% 52%;
+
+    /* Wellness-specific colors */
+    --wellness-primary: 158 64% 52%;
+    --wellness-secondary: 158 71% 40%;
+    --wellness-accent: 46 87% 65%;
+    --wellness-emergency: 0 84% 60%;
+    --wellness-calm: 210 40% 96%;
+    --wellness-glass: 158 64% 52%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--wellness-primary)), hsl(var(--wellness-secondary)));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--wellness-glass) / 0.1), hsl(var(--wellness-glass) / 0.05));
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--wellness-emergency)), hsl(0 70% 50%));
+    --gradient-calm: linear-gradient(135deg, hsl(var(--wellness-calm)), hsl(210 40% 98%));
+
+    /* Shadows */
+    --shadow-wellness: 0 8px 32px hsl(var(--wellness-primary) / 0.15);
+    --shadow-emergency: 0 4px 15px hsl(var(--wellness-emergency) / 0.4);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -101,5 +124,57 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    min-height: 100vh;
+  }
+
+  /* Glass morphism utility */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Pulse animation for emergency button */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+
+  /* Slide animations */
+  @keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
+  .slide-down {
+    animation: slideDown 0.5s ease;
+  }
+
+  /* Typing indicator */
+  @keyframes typing {
+    0%, 80%, 100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1);
+    }
+  }
+
+  .typing-dot {
+    animation: typing 1.4s infinite ease-in-out;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
   }
 }

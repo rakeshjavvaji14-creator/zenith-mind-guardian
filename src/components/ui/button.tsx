@@ -15,6 +15,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        wellness: "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 shadow-lg hover:shadow-emerald-500/25 transition-all duration-300",
+        emergency: "bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 shadow-lg hover:shadow-red-500/25 pulse transition-all duration-300",
+        glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300",
+        mood: "bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-transparent hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",
