@@ -6,6 +6,8 @@ import { AcademicStress } from "@/components/AcademicStress";
 import { CrisisSupport } from "@/components/CrisisSupport";
 import { PrivacyControls } from "@/components/PrivacyControls";
 import { WellnessCalendar } from "@/components/WellnessCalendar";
+import { NotificationBanner } from "@/components/NotificationBanner";
+import { WellnessStats } from "@/components/WellnessStats";
 
 const Index = () => {
   const today = new Date().toLocaleDateString("en-US", {
@@ -18,16 +20,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       <EmergencyButton />
+      <NotificationBanner />
       
       {/* Header */}
-      <header className="bg-gradient-to-r from-emerald-500/95 to-emerald-600/95 backdrop-blur-md text-white p-8 text-center border-b border-white/20 relative">
+      <header className="bg-gradient-to-r from-emerald-500/95 to-emerald-600/95 backdrop-blur-md text-white p-8 text-center border-b border-white/20 relative animate-fade-in">
         <h1 className="text-4xl md:text-5xl font-bold mb-2 text-shadow-lg">
           AI Student Wellness Platform
         </h1>
         <p className="text-lg md:text-xl opacity-90 mb-4">
           Your comprehensive companion for mental health, wellness tracking, and peer support
         </p>
-        <div className="inline-block bg-white/15 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
+        <div className="inline-block bg-white/15 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 animate-scale-in">
           {today}
         </div>
       </header>
@@ -42,6 +45,9 @@ const Index = () => {
 
           {/* Mood Tracker */}
           <MoodTracker />
+
+          {/* Wellness Stats */}
+          <WellnessStats />
 
           {/* Academic Stress */}
           <AcademicStress />
