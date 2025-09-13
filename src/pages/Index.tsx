@@ -5,6 +5,7 @@ import { AIChat } from "@/components/AIChat";
 import { AcademicStress } from "@/components/AcademicStress";
 import { CrisisSupport } from "@/components/CrisisSupport";
 import { PrivacyControls } from "@/components/PrivacyControls";
+import { WellnessCalendar } from "@/components/WellnessCalendar";
 
 const Index = () => {
   const today = new Date().toLocaleDateString("en-US", {
@@ -53,6 +54,11 @@ const Index = () => {
 
           {/* Privacy Controls */}
           <PrivacyControls />
+
+          {/* Wellness Calendar - Full Width */}
+          <div className="lg:col-span-2 xl:col-span-3">
+            <WellnessCalendar />
+          </div>
         </div>
       </main>
     </div>
